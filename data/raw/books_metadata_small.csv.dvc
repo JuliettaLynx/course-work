@@ -1,0 +1,5 @@
+outs:
+- md5: c8c7a04a96223f9b073c1c7245be3ae9
+  size: 1159463
+  hash: md5
+  path: books_metadata_small.csv
