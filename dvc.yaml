@@ -1,0 +1,11 @@
+stages:
+  split:
+    cmd: python scripts/split_by_time.py
+    deps:
+      - scripts/split_by_time.py
+      - data/raw/interactions_large.csv
+    params:
+      - split.train_ratio
+    outs:
+      - data/processed/train_split.csv
+      - data/incoming

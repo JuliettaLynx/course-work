@@ -1,0 +1,23 @@
+# Виртуальное окружение
+venv/
+env/
+.venv/
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Кэш DVC
+.dvc/cache/
+.dvc/tmp/
+
+# Артефакты MLflow
+mlruns/
+
+# Результаты обработки данных (они будут создаваться скриптами)
+data/processed/*
+data/incoming/*
+!data/processed/.gitkeep
+!data/incoming/.gitkeep

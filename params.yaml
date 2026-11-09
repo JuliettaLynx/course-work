@@ -1,0 +1,4 @@
+random_state: 42
+split:
+  train_ratio: 0.65
+  date_col: "date_added"
