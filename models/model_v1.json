@@ -1,0 +1,257 @@
+{
+  "date": "2026-11-16T09:36:24",
+  "algorithm": "LogReg-L1",
+  "params": {
+    "model__C": 0.0005,
+    "model__l1_ratio": 1.0,
+    "model__max_iter": 2000,
+    "model__solver": "liblinear"
+  },
+  "roc_auc_cv_sample": 0.6458392507848513,
+  "roc_auc_cv_std": 0.0036954496509929305,
+  "pr_auc_cv": 0.5466890971282448,
+  "f1_cv": 0.004384447537550025,
+  "cv_scheme": "GroupKFold(n_splits=5) by user_id",
+  "sample_size_search": 150000,
+  "sample_size_final_fit": 668671,
+  "features_numeric": [
+    "average_rating",
+    "num_pages",
+    "publication_year",
+    "ratings_count",
+    "user_avg_rating",
+    "rating_diff",
+    "book_age",
+    "log_ratings_count"
+  ],
+  "features_categorical": [
+    "is_ebook",
+    "language_code",
+    "num_pages_bin"
+  ],
+  "random_state": 42,
+  "search_results": {
+    "logreg": {
+      "model": "LogReg-L1",
+      "best_params": {
+        "model__C": 0.0005,
+        "model__l1_ratio": 1.0,
+        "model__max_iter": 2000,
+        "model__solver": "liblinear"
+      },
+      "roc_auc": 0.6458392507848513,
+      "roc_auc_std": 0.0036954496509929305,
+      "pr_auc": 0.5466890971282448,
+      "f1": 0.004384447537550025,
+      "time_sec": 8.3,
+      "n_combos": 4,
+      "n_folds": 5
+    },
+    "lgbm": {
+      "model": "LightGBM",
+      "best_params": {
+        "model__learning_rate": 0.05,
+        "model__min_child_samples": 20,
+        "model__n_estimators": 200,
+        "model__num_leaves": 15,
+        "model__reg_alpha": 0.1
+      },
+      "roc_auc": 0.6354689765501711,
+      "roc_auc_std": 0.005609351091024768,
+      "pr_auc": 0.5349998212979004,
+      "f1": 0.12567352361316725,
+      "time_sec": 83.8,
+      "n_combos": 24,
+      "n_folds": 5
+    }
+  },
+  "choose_rule": {
+    "threshold": 0.005,
+    "delta": 0.0104,
+    "chosen": "LogReg-L1"
+  },
+  "all_experiments": {
+    "fig1": {
+      "C": [
+        0.001,
+        0.01,
+        0.1,
+        1.0
+      ],
+      "roc_l1": [
+        0.6457523182658339,
+        0.6370408447516203,
+        0.6329068537523648,
+        0.6316779292929777
+      ],
+      "roc_l2": [
+        0.6377199413381687,
+        0.6339091992322355,
+        0.6324056823358466,
+        0.6315509389761147
+      ],
+      "nonzero_l1": [
+        3,
+        13,
+        19,
+        46
+      ]
+    },
+    "fig2": {
+      "depths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "train": [
+        0.8091783406364197,
+        0.8888565764722547,
+        0.9060567210289088,
+        0.9141303145710685,
+        0.9164394882764452,
+        0.9183395690248604,
+        0.9206212598693219,
+        0.9226675256614282,
+        0.9245653987492085,
+        0.9268135834043191
+      ],
+      "val": [
+        0.5,
+        0.5,
+        0.6017121046921556,
+        0.6078660881655962,
+        0.6256527327942502,
+        0.6329167485777683,
+        0.6106798371684242,
+        0.6099207906040467,
+        0.5945473777696215,
+        0.5744069646293417
+      ]
+    },
+    "ablation": {
+      "LogReg-L2": {
+        "baseline": 0.6458425098936065,
+        "full": 0.6395164196436804,
+        "delta": -0.006326090249926031
+      },
+      "LightGBM": {
+        "baseline": 0.6466321065235958,
+        "full": 0.6353002323706737,
+        "delta": -0.011331874152922139
+      }
+    },
+    "tuning": {
+      "logreg": {
+        "model": "LogReg-L1",
+        "best_params": {
+          "model__C": 0.0005,
+          "model__l1_ratio": 1.0,
+          "model__max_iter": 2000,
+          "model__solver": "liblinear"
+        },
+        "roc_auc": 0.6458392507848513,
+        "roc_auc_std": 0.0036954496509929305,
+        "pr_auc": 0.5466890971282448,
+        "f1": 0.004384447537550025,
+        "time_sec": 8.3,
+        "n_combos": 4,
+        "n_folds": 5
+      },
+      "lgbm": {
+        "model": "LightGBM",
+        "best_params": {
+          "model__learning_rate": 0.05,
+          "model__min_child_samples": 20,
+          "model__n_estimators": 200,
+          "model__num_leaves": 15,
+          "model__reg_alpha": 0.1
+        },
+        "roc_auc": 0.6354689765501711,
+        "roc_auc_std": 0.005609351091024768,
+        "pr_auc": 0.5349998212979004,
+        "f1": 0.12567352361316725,
+        "time_sec": 83.8,
+        "n_combos": 24,
+        "n_folds": 5
+      }
+    },
+    "choose_rule": {
+      "threshold": 0.005,
+      "delta": 0.0104,
+      "chosen": "LogReg-L1"
+    },
+    "comparison": [
+      {
+        "model": "Базовое: наиболее частый класс",
+        "roc_auc": 0.5,
+        "roc_auc_std": 0.0,
+        "pr_auc": 0.41233333333333333,
+        "f1": 0.0,
+        "recall": 0.0,
+        "time_sec": 0.3
+      },
+      {
+        "model": "Базовое: правило rating≥4 & count≥100",
+        "roc_auc": 0.577826094649917,
+        "roc_auc_std": 0.0003422288332546673,
+        "pr_auc": 0.45592207668038,
+        "f1": 0.5600200804546576,
+        "recall": 0.6789990237631987,
+        "time_sec": 0.2
+      },
+      {
+        "model": "LogReg-L1 (C=0.0005) — итоговая",
+        "roc_auc": 0.6458392507848513,
+        "roc_auc_std": 0.0036954496509929305,
+        "pr_auc": 0.5466890971282448,
+        "f1": 0.004384447537550025,
+        "recall": 0.0021974590661068315,
+        "time_sec": 3.0
+      },
+      {
+        "model": "LogReg-L2 (C=0.001)",
+        "roc_auc": 0.6395164196436804,
+        "roc_auc_std": 0.004228768677457703,
+        "pr_auc": 0.5405133113400752,
+        "f1": 0.013271901617389092,
+        "recall": 0.006689186638233285,
+        "time_sec": 1.9
+      },
+      {
+        "model": "Decision Tree (depth=6)",
+        "roc_auc": 0.6329167485777683,
+        "roc_auc_std": 0.00715170876402797,
+        "pr_auc": 0.5095203662711335,
+        "f1": 0.26242144147377416,
+        "recall": 0.18511188698245293,
+        "time_sec": 3.5
+      },
+      {
+        "model": "Random Forest (100)",
+        "roc_auc": 0.5226047985952029,
+        "roc_auc_std": 0.005417804063139406,
+        "pr_auc": 0.42911263651060627,
+        "f1": 0.3240987594285397,
+        "recall": 0.25513955323126986,
+        "time_sec": 91.2
+      },
+      {
+        "model": "LightGBM (tuned)",
+        "roc_auc": 0.6354689765501711,
+        "roc_auc_std": 0.005609351091024768,
+        "pr_auc": 0.5349998212979004,
+        "f1": 0.12567352361316725,
+        "recall": 0.06983877910332223,
+        "time_sec": 4.1
+      }
+    ]
+  },
+  "notes": "Все эксперименты выполнены на единой подвыборке 150000 строк (GroupKFold(5) по user_id). Финальная модель переобучена на полном train (2001–2013). Тестовая выборка (2014) не использовалась."
+}
